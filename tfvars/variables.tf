@@ -29,8 +29,12 @@ variable "domain" {
   default = "devopsuday.online"
 }
 
-variable "sg_name" {
-    default = "allow-all"
+# variable "sg_name" {       # declaring variable and value also
+#     default = "allow-all"
+# }
+
+variable "sg_name" {   # declaring variable but not providing value
+  type = string
 }
 
 variable "sg_cidr" {

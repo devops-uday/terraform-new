@@ -7,6 +7,16 @@ resource "aws_instance" "roboshop" {
   }
 }
 
+
+resource "aws_route53_record" "uday" {
+  for_each = aws_instance.roboshop
+  zone_id = var.zone_id
+  name    = "${each.key}.${var.domain}"
+  type    = "A"
+  ttl     = 1
+  records = [each.key == "Web" ? each.value.public_ip : each.value.private_ip]
+}
+
 resource "aws_security_group" "allow_all" {
     name = var.sg_name
     description = "allowing all ports"

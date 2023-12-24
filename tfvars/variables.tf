@@ -1,6 +1,8 @@
+# values mentioned in variables.tf are default values
+# we can always override them
 variable "ami_id" {
-  type = string
-  default = "ami-03265a0778a880afb"
+  type = string #this a data type string
+  default = "ami-03265a0778a880afb" #this is a default value
 }
 
 variable "instances" {
